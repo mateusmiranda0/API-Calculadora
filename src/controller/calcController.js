@@ -1,76 +1,54 @@
-const joi = require("joi");
 const CalcService = require("../services/calcService");
 
 class CalcController{
     static async soma(req,res){
-        const schema = joi.object({
-            num1: joi.number().required(),
-            num2: joi.number().required()
-        });
+        const {num1,num2} = req.query;
 
-        const {error,value} = schema.validate(req.query);
-
-        if(error){
-            return res.status(400).json({erro: "Parametros inválidos.",})
+        if(num1 === undefined || num2 === undefined || isNaN(Number(num1)) || isNaN(Number(num2))){
+            return res.status(400).json({error: "Parametros Inválidos"});
         }
-        const {num1,num2} = value;
 
-        const result = CalcService.soma(num1,num2);
-        res.status(200).json({result});
+        const nNum1 = Number(num1);
+        const nNum2 = Number(num2);
+        const result = CalcService.soma(nNum1,nNum2);
+        res.status(200).json({result})
    }
    static async subtracao(req,res){
-        const schema = joi.object({
-            num1: joi.number().required(),
-            num2: joi.number().required()
-        });
+        const {num1,num2} = req.body;
 
-        const {error, value} = schema.validate(req.body);
-
-        if(error){
-            return res.status(400).json({erro: "Corpo inválido.",})
+        if(num1 === undefined || num2 === undefined || typeof num1 !== 'number' || typeof num2 !== 'number'){
+            return res.status(400).json({error: "Corpo da requisção Inválido"});
         }
-        const {num1,num2} = value;
 
         const result = CalcService.subtracao(num1,num2);
         res.status(200).json({result});
    }
    static async multiplicacao(req,res){
-        const schema = joi.object({
-            num1: joi.number().required(),
-            num2: joi.number().required()
-        });
+        const {num1,num2} = req.params;
 
-        const num1 = parseFloat(req.params.num1);
-        const num2 = parseFloat(req.params.num1);
-
-        const {error} = schema.validate({num1,num2});
-
-        if(error){
-            return res.status(400).json({erro: "Parametros inválido.",})
+        if(isNaN(Number(num1)) || isNaN(Number(num2))){
+            return res.status(400).json({error: "Parametros Inválidos"});
         }
 
-        const result = CalcService.multiplicacao(num1,num2);
-        res.status(200).json({result});
+        const nNum1 = Number(num1);
+        const nNum2 = Number(num2);
+        const result = CalcService.multiplicacao(nNum1,nNum2);
+        res.status(200).json({result})
    }
    static async divisao(req,res){
-        const schema = joi.object({
-            num1: joi.number().required(),
-            num2: joi.number().required().not(0).error(new Error("Divisao por 0!"))
-        });
+        const {num1,num2} = req.body;
 
-        const {error,value} = schema.validate(req.body);
-    
-        if(error){
-            return res.status(400).json({error: "Corpo inválido.", details: error.details[0].message})
+        if(num1 === undefined || num2 === undefined || typeof num1 !== 'number' || typeof num2 !== 'number'){
+            return res.status(400).json({error: "Corpo da requisção Inválido"});
         }
-        const {num1,num2} = value;
-        try{
-            const result = CalcService.divisao(num1,num2);
-            res.status(200).json({result});
-        } catch(err){
-            res.status(400).json({error: err.message});
+
+        if(num2 === 0){
+            return res.status(400).json({error:"Divisão por 0!"});
         }
-    }
+
+        const result = CalcService.divisao(num1,num2);
+        res.status(200).json({result});
+    }   
 }
 
 module.exports = CalcController;
