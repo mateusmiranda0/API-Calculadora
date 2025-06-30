@@ -20,8 +20,8 @@ Aparecerá uma mensagem no console: "Servidor rodando na porta 3000"
 
 # Como testar a API
 
-Utilize a ferramenta Insomnia ou Postman para testes dos endpoints.
-A URL base para as operações são:
+Utilize a ferramenta Insomnia ou Postman para testes dos endpoints. <br>
+A URL base para as operações são:<br>
 -> http://localhost:3000/soma?num1=10&num2=10  (Query Params) - (Exemplo)<br>
 -> http://localhost:3000/subtracao             (Utilize body JSON)<br>
 -> http://localhost:3000/multiplicacao/:10/:10 (URL Params) - (Exemplo)<br>
