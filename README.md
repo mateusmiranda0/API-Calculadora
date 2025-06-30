@@ -22,7 +22,7 @@ Aparecerá uma mensagem no console: "Servidor rodando na porta 3000"
 
 Utilize a ferramenta Insomnia ou Postman para testes dos endpoints.
 A URL base para as operações são:
--> http://localhost:3000/soma?num1=10&num2=10  (Query Params) - (Exemplo)
--> http://localhost:3000/subtracao             (Utilize body JSON)
--> http://localhost:3000/multiplicacao/:10/:10 (URL Params) - (Exemplo)
+-> http://localhost:3000/soma?num1=10&num2=10  (Query Params) - (Exemplo)<br>
+-> http://localhost:3000/subtracao             (Utilize body JSON)<br>
+-> http://localhost:3000/multiplicacao/:10/:10 (URL Params) - (Exemplo)<br>
 -> http://localhost:3000/divisao               (Utilize body JSON)
