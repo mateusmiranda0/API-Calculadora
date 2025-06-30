@@ -1,7 +1,7 @@
 const CalcService = require("../services/calcService");
 
 class CalcController{
-    static async soma(req,res){
+    static soma(req,res){
         const {num1,num2} = req.query;
 
         if(num1 === undefined || num2 === undefined || isNaN(Number(num1)) || isNaN(Number(num2))){
@@ -13,7 +13,7 @@ class CalcController{
         const result = CalcService.soma(nNum1,nNum2);
         res.status(200).json({result})
    }
-   static async subtracao(req,res){
+   static subtracao(req,res){
         const {num1,num2} = req.body;
 
         if(num1 === undefined || num2 === undefined || typeof num1 !== 'number' || typeof num2 !== 'number'){
@@ -23,7 +23,7 @@ class CalcController{
         const result = CalcService.subtracao(num1,num2);
         res.status(200).json({result});
    }
-   static async multiplicacao(req,res){
+   static multiplicacao(req,res){
         const {num1,num2} = req.params;
 
         if(isNaN(Number(num1)) || isNaN(Number(num2))){
@@ -35,7 +35,7 @@ class CalcController{
         const result = CalcService.multiplicacao(nNum1,nNum2);
         res.status(200).json({result})
    }
-   static async divisao(req,res){
+   static divisao(req,res){
         const {num1,num2} = req.body;
 
         if(num1 === undefined || num2 === undefined || typeof num1 !== 'number' || typeof num2 !== 'number'){
