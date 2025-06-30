@@ -9,9 +9,6 @@ class CalcService{
         return num1 * num2;
     }
     static divisao(num1,num2){
-        if(num2 === 0){
-            throw new Error("Divisão por zero!");
-        }
         return num1 / num2;
     }
 }

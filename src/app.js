@@ -6,7 +6,7 @@ const PORT = 3000;
 
 app.use(express.json());
 
-app.use("/calculadora",calcRoutes);
+app.use("",calcRoutes);
 
 app.get('/',(req,res)=>{
     res.status(200).json({message: "API funcionando!"});
