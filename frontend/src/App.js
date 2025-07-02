@@ -1,19 +1,26 @@
-import React, {useState} from 'react'
+import React,{useState} from 'react'
 import axios from 'axios'
+import "./App.scss"
 
-function App(){
+export default function App(){
   const [num1,setNum1] = useState('');
   const [num2,setNum2] = useState('');
   const [resultado,setResultado] = useState(null);
-  const [erro,setErro] = useState(null);
+  let [erro,setErro] = useState(null);
 
   const API_URL = 'http://localhost:3001'
 
-  const lidarComOperacao = async(operacao) =>{
+  const Operacao = async(operacao) =>{
     setErro(null);
     setResultado(null);
 
+    if(num1 === '' || num2 === ''){
+      setErro("Por favor informe ambos os números!");
+      return;
+    }
+
     const dados = {num1: Number(num1),num2: Number(num2)}
+    console.log(dados)
 
     try{
       let resposta;
@@ -33,7 +40,7 @@ function App(){
         default:
           return  
       }
-      setResultado(resposta.data.resultado);
+      setResultado(resposta.data.result);
     }catch(err){
       setErro(err.response?.data?.error || err.message || "Ocorreu um erro desconhecido.")
     }
@@ -46,8 +53,21 @@ function App(){
         <input type='number' placeholder='Digite um número:' value={num2} onChange={(e)=> setNum2(e.target.value)}></input>
       </div>
       <div className='buttons'>
-        <button 
+        <button onClick={()=>Operacao('soma')}>Somar</button>
+        <button onClick={()=>Operacao('subtracao')}>Subtrair</button>
+        <button onClick={()=>Operacao('multiplicacao')}>Multiplicar</button>
+        <button onClick={()=>Operacao('divisao')}>Dividir</button>
       </div>
+      {resultado !== null && (
+        <div className="result">
+          Resultado: {resultado}
+        </div>
+        )}
+      {erro && (
+        <div className="error">
+          Erro: {erro}
+        </div>
+        )}
     </div>
-  )
+  );
 }

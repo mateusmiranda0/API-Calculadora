@@ -1,0 +1,79 @@
+$cor-primaria: black;
+$cor-erro: red;
+$cor-fundo: white;
+$borda-arredondada: 0.25rem;
+$padding: 1.1rem;
+$margin: 0.5rem;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $padding * 2;
+  background-color: $cor-fundo;
+  border-radius: $borda-arredondada;
+  margin: $padding;
+}
+
+h1 {
+  margin-bottom: $padding;
+  color: $cor-primaria;
+}
+
+.inputs {
+  display: flex;
+  margin-bottom: $margin * 4;
+}
+
+input {
+  padding: $padding * 0.5;
+  margin: 0 $margin;
+  border: 1px solid #ced4da;
+  border-radius: $borda-arredondada;
+  &:focus {
+    outline: none;
+    border-color: $cor-primaria;
+    box-shadow: 0 0 0 0.2rem rgba($cor-primaria, 0.25);
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: $margin;
+  margin-bottom: $margin * 2;
+}
+
+button {
+  padding: $padding * 0.75 $padding * 1.5;
+  border: none;
+  border-radius: $borda-arredondada;
+  background-color: $cor-primaria;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  &:hover {
+    background-color: darken($cor-primaria, 10%);
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba($cor-primaria, 0.5);
+  }
+}
+
+.result {
+  margin-top: $padding;
+  font-weight: bold;
+  color: $cor-primaria;
+}
+
+.error {
+  margin-top: $padding;
+  font-weight: bold;
+  color: $cor-erro;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
