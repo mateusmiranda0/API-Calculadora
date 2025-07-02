@@ -20,7 +20,6 @@ export default function App(){
     }
 
     const dados = {num1: Number(num1),num2: Number(num2)}
-    console.log(dados)
 
     try{
       let resposta;
@@ -42,7 +41,7 @@ export default function App(){
       }
       setResultado(resposta.data.result);
     }catch(err){
-      setErro(err.response?.data?.error || err.message || "Ocorreu um erro desconhecido.")
+      setErro(err.response?.data?.error || err.message || "Ocorreu um erro desconhecido.");
     }
   }
   return(
