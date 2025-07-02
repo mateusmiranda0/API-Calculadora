@@ -15,7 +15,7 @@ export default function App(){
     setResultado(null);
 
     if(num1 === '' || num2 === ''){
-      setErro("Por favor informe ambos os números!");
+      setErro("Por favor informe ambos os numeros!");
       return;
     }
 
