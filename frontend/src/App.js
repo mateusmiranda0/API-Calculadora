@@ -6,7 +6,7 @@ export default function App(){
   const [num1,setNum1] = useState('');
   const [num2,setNum2] = useState('');
   const [resultado,setResultado] = useState(null);
-  let [erro,setErro] = useState(null);
+  const [erro,setErro] = useState(null);
 
   const API_URL = 'http://localhost:3001'
 
@@ -48,14 +48,14 @@ export default function App(){
     <div className='container'>
       <h1>Calculadora</h1>
       <div className='inputs'>
-        <input type='number' placeholder='Digite um número:' value={num1} onChange={(e)=> setNum1(e.target.value)}></input>
-        <input type='number' placeholder='Digite um número:' value={num2} onChange={(e)=> setNum2(e.target.value)}></input>
+        <input type='number' placeholder='Digite um número:' value={num1} onChange={(e) => setNum1(e.target.value)}></input>
+        <input type='number' placeholder='Digite um número:' value={num2} onChange={(e) => setNum2(e.target.value)}></input>
       </div>
       <div className='buttons'>
-        <button onClick={()=>Operacao('soma')}>Somar</button>
-        <button onClick={()=>Operacao('subtracao')}>Subtrair</button>
-        <button onClick={()=>Operacao('multiplicacao')}>Multiplicar</button>
-        <button onClick={()=>Operacao('divisao')}>Dividir</button>
+        <button onClick={()=>Operacao('soma')} className="operations">Somar</button>
+        <button onClick={()=>Operacao('subtracao')} className="operations">Subtrair</button>
+        <button onClick={()=>Operacao('multiplicacao')} className="operations">Multiplicar</button>
+        <button onClick={()=>Operacao('divisao')} className="operations">Dividir</button>
       </div>
       {resultado !== null && (
         <div className="result">

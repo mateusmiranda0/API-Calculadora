@@ -1,67 +1,63 @@
-$cor-primaria: black;
-$cor-erro: red;
-$cor-fundo: white;
-$borda-arredondada: 0.25rem;
-$padding: 1.1rem;
-$margin: 0.5rem;
-
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: $padding * 2;
-  background-color: $cor-fundo;
-  border-radius: $borda-arredondada;
-  margin: $padding;
+  padding: 40px;
+  margin: 30px;
 }
 
-h1 {
-  margin-bottom: $padding;
-  color: $cor-primaria;
+h1{
+  margin-bottom: 40px;
 }
 
-.inputs {
+.inputs{
   display: flex;
-  margin-bottom: $margin * 4;
+  margin-bottom: 40px;
 }
 
-input {
-  padding: $padding * 0.5;
-  margin: 0 $margin;
-  border: 1px solid #ced4da;
-  border-radius: $borda-arredondada;
-  &:focus {
+input{
+  padding: 5px;
+  margin: 0 20px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  &:focus{
     outline: none;
-    border-color: $cor-primaria;
-    box-shadow: 0 0 0 0.2rem rgba($cor-primaria, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(black, 0.25);
   }
 }
 
-.buttons {
+.buttons{
   display: flex;
-  gap: $margin;
-  margin-bottom: $margin * 2;
+  gap: 20px;
+  margin-bottom: 20px;
 }
 
-button {
-  padding: $padding * 0.75 $padding * 1.5;
-  border: none;
-  border-radius: $borda-arredondada;
-  background-color: $cor-primaria;
+.operations{
+  padding: 13px;
   color: white;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+  &:hover{
+    transform: scale(1.03);
+  }
+  &:active{
+    transform: scale(0.9);
+  }
 }
 
-.result {
-  margin-top: $padding;
+.result{
+  font-size: 25px;
   font-weight: bold;
-  color: $cor-primaria;
+  margin-top: 20px;
 }
 
-.error {
-  margin-top: $padding;
+.error{
+  font-size: 25px;
   font-weight: bold;
-  color: $cor-erro;
+  margin-top: 20px;
+  color: red;
 }
 
 input::-webkit-outer-spin-button,
