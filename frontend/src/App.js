@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import {useState,useEffect} from 'react'
 import axios from 'axios'
 import "./App.scss"
 
@@ -9,13 +9,22 @@ export default function App(){
   const [erro,setErro] = useState(null);
 
   const API_URL = 'http://localhost:3001'
+  
+  useEffect(() => {
+    if(erro){
+      const timer = setTimeout(()=>{
+        setErro(null)
+      },3000)
+      return () => clearTimeout(timer)
+    }
+  },[erro])
 
-  const Operacao = async(operacao) =>{
+  const Operacao = async(operacao) => {
     setErro(null);
     setResultado(null);
 
     if(num1 === '' || num2 === ''){
-      setErro("Por favor informe ambos os numeros!");
+      setErro("Informe ambos os numeros!");
       return;
     }
 
